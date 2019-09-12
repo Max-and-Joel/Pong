@@ -11,7 +11,8 @@ def print_object(object):
         print("")
     print("")
 
-class Object :
+
+class Object:
     def __init__(self, field, color):
         self.color = color
         self.orientation = 0
@@ -33,11 +34,12 @@ class Object :
         for x in self.field_with_rotations[self.orientation]:
             print(x)
 
+
 class Objecttype:
-    paddle =[1, 0, 0, 0]
-            [1, 0, 0, 0]
-            [1, 0, 0, 0]
-            [1, 0, 0, 0]
-    ball =  [0, 0, 0]
-            [0, 1, 0]
-            [0, 0, 0]
+    paddle = [[1, 1, 1],
+              [0, 0, 0],
+              [0, 0, 0]]
+
+    ball = [[0, 0, 0],
+            [0, 1, 0],
+            [0, 0, 0]]
