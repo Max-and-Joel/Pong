@@ -50,44 +50,45 @@ def run_game():
     joystick = pygame.joystick.Joystick(0)
     joystick.init()
 
+    # todo: new sounds
+    pygame.mixer.init()
+    pygame.mixer.music.load('./Music/Tetris Edit 1 Export 3.mp3')
+    new_block = pygame.mixer.Sound('./Music/New_Block.wav')
+    game_over_sound = pygame.mixer.Sound('./Music/GameOver.wav')
+    break_sound = pygame.mixer.Sound('./Music/break.wav')
+    lines1_3 = pygame.mixer.Sound('./Music/1.-3.lane.wav')
+    line4 = pygame.mixer.Sound('./Music/4.lane.wav')
+    # pygame.mixer.music.play(-1)
+    pygame.mixer.music.set_volume(0.5)
+    pygame.mixer.music.play(-1)
 
-# todo: new sounds
-pygame.mixer.init()
-pygame.mixer.music.load('./Music/Tetris Edit 1 Export 3.mp3')
-new_block = pygame.mixer.Sound('./Music/New_Block.wav')
-game_over_sound = pygame.mixer.Sound('./Music/GameOver.wav')
-break_sound = pygame.mixer.Sound('./Music/break.wav')
-lines1_3 = pygame.mixer.Sound('./Music/1.-3.lane.wav')
-line4 = pygame.mixer.Sound('./Music/4.lane.wav')
-# pygame.mixer.music.play(-1)
-pygame.mixer.music.set_volume(0.5)
-pygame.mixer.music.play(-1)
+    gamepad = controller.Controller(joystick)
 
-gamepad = controller.Controller(joystick)
+    # drawer for playfield
+    rgg_led_drawer = rgbleddrawer.RgbLedDrawer()
 
-# drawer for playfield
-rgg_led_drawer = rgbleddrawer.RgbLedDrawer()
+    # drawer for scoreboard
+    led_matrix_drawer = ledmatrixdrawer.LedMatrixDrawer()
 
-# drawer for scoreboard
-led_matrix_drawer = ledmatrixdrawer.LedMatrixDrawer()
+    # Playgrounds
+    color_playground = playground.Playground(20, 10)
+    red_playground = playground.Playground(8, 32)
 
-# Playgrounds
-color_playground = playground.Playground(20, 10)
-red_playground = playground.Playground(8, 32)
+    score1 = 0
+    score2 = 0
+    collision = Collision.Collision_Dedektor()
 
-score1 = 0
-score2 = 0
-collision = Collision.Collision_Dedektor()
+    clock = pygame.time.Clock()  # type: pygame.time.Clock
+    clock_titlescreen(color_playground, rgg_led_drawer, red_playground, led_matrix_drawer, controller)
+    game_over = False
+    while not game_over:
+    # todo: here is were the game is written
+    del led_matrix_drawer
+    del rgg_led_drawer
+    pygame.event.get()
+    pygame.quit()
 
-clock = pygame.time.Clock()  # type: pygame.time.Clock
-clock_titlescreen(color_playground, rgg_led_drawer, red_playground, led_matrix_drawer, controller)
-game_over = False
-while not game_over:
-# todo: here is were the game is written
-del led_matrix_drawer
-del rgg_led_drawer
-pygame.event.get()
-pygame.quit()
+
 if __name__ == "__main__":
     while True:
         run_game()
