@@ -1,7 +1,8 @@
 import time
 import pygame
 import datetime
-
+import Objects
+import numbertoblock
 import Collision
 import Controller
 import Matrix_Drawer
@@ -31,10 +32,8 @@ def clock_titlescreen(color_playground, rgg_led_drawer, red_playground, led_matr
         led_matrix_drawer.draw_playground(red_playground)
         pygame.time.Clock().tick(1)
 
-        rand = random_blocks.Randomblock()
-        next_block = rand.get_random_block()
-        result = controller.get_button_pressed(next_block, (1, 1), Collision.Collision_Dedektor(),
-                                               playground.Playground(20, 10))
+        result = controller.get_button_pressed((1, 1), Collision.Collision_Dedektor(),
+                                               Playground.Playground(20, 10))
         if result == "Restart":
             break
     color_playground.clear()
@@ -62,24 +61,24 @@ def run_game():
     pygame.mixer.music.set_volume(0.5)
     pygame.mixer.music.play(-1)
 
-    gamepad = controller.Controller(joystick)
+    gamepad = Controller.Controller(joystick)
 
     # drawer for playfield
     rgg_led_drawer = rgbleddrawer.RgbLedDrawer()
 
     # drawer for scoreboard
-    led_matrix_drawer = ledmatrixdrawer.LedMatrixDrawer()
+    led_matrix_drawer = Matrix_Drawer.LedMatrixDrawer()
 
     # Playgrounds
-    color_playground = playground.Playground(20, 10)
-    red_playground = playground.Playground(8, 32)
+    color_playground = Playground.Playground(20, 10)
+    red_playground = Playground.Playground(8, 32)
 
     score1 = 0
     score2 = 0
     collision = Collision.Collision_Dedektor()
 
     clock = pygame.time.Clock()  # type: pygame.time.Clock
-    clock_titlescreen(color_playground, rgg_led_drawer, red_playground, led_matrix_drawer, controller)
+    clock_titlescreen(color_playground, rgg_led_drawer, red_playground, led_matrix_drawer, Controller)
     game_over = False
     while not game_over:
     # todo: here is were the game is written

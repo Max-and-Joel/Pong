@@ -1,13 +1,13 @@
 from Playground import Playground
 from luma.core.render import canvas
 from luma.core.interface.serial import spi, noop
-from luma.led_matrix.device import Display_2
+from luma.led_matrix.device import max7219
 
 
 class LedMatrixDrawer:
     def __init__(self):
         serial = spi(port=0, device=0, gpio=noop())
-        led_matrix = Display_2(serial, cascaded=4, block_orientation=90,
+        led_matrix = max7219(serial, cascaded=4, block_orientation=90,
                              rotate=0, blocks_arranged_in_reverse_order=True)
         self.device = led_matrix
 
