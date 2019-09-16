@@ -8,6 +8,7 @@ import Controller
 import Matrix_Drawer
 import Playground
 import rgbleddrawer
+import Objects
 
 
 def clock_titlescreen(color_playground, rgg_led_drawer, red_playground, led_matrix_drawer, controller):
@@ -81,6 +82,7 @@ def run_game():
     clock_titlescreen(color_playground, rgg_led_drawer, red_playground, led_matrix_drawer, Controller)
     game_over = False
     while not game_over:
+        pass
     # todo: here is were the game is written
     del led_matrix_drawer
     del rgg_led_drawer
