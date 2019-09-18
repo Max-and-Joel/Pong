@@ -82,7 +82,7 @@ def run_game():
     clock_titlescreen(color_playground, rgg_led_drawer, red_playground, led_matrix_drawer, Controller)
     game_over = False
     while not game_over:
-        color_playground.add_object(Objects.Objecttype.paddle_left, 0, 0)
+        color_playground.add_object(Objects.Objecttype.paddle_left, 3, 3)
         color_playground.draw()
     # todo: here is were the game is written
     del led_matrix_drawer
