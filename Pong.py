@@ -84,7 +84,7 @@ def run_game():
     while not game_over:
         color_playground.add_object(Objects.Objecttype.paddle_left, 3, 3)
         color_playground.draw()
-    # todo: here is were the game is written
+    #todo: here is were the game is written
     del led_matrix_drawer
     del rgg_led_drawer
     pygame.event.get()
