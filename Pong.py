@@ -83,7 +83,7 @@ def run_game():
     game_over = False
     while not game_over:
         color_playground.add_object(Objects.Objecttype.paddle_left, 3, 3)
-        color_playground.draw()
+        rgg_led_drawer.draw_playground(color_playground)
     #todo: here is were the game is written
     del led_matrix_drawer
     del rgg_led_drawer
